@@ -70,23 +70,19 @@ def KALKILELAJ():
 
 
 def TANPERATI():
-    print('----------\nEkzèsis n° 003\n----------')
-    tanperati = input('Enfòme pwa a: ')
-    if(tanperati.isnumeric()):
-        while True:
-            print('---------------')
+    while True:
+        print('----------\nEkzèsis n° 003\n----------')
+        tanperati = input('Enfòme tanperati a °F: ')
+        if(tanperati.isnumeric()):
+            tanperati = float(tanperati)
             print('Tanperati aktyèl la:', tanperati, '°F')
-            print('---------------')
-            if(tanperati.isnumeric()):
-                tanperati = int(tanperati)
-                print('Ou fèt', dateNesans, 'Laj la se:',aneAktyèl - dateNesans, 'ane')
-                break
-            else:
-                print('Ou dwe enfòme yon valè nimerik')
-    else:
-        print('Enfòme yon valè nimerik pou ou finalize operasyon an!')
-
-
+            tanperati = int(tanperati)
+            celcius = ((tanperati-32)*5)/9
+            print('Tanperati a',celcius,'°C')
+            break
+        else:
+            print('Ou dwe enfòme yon valè nimerik')
+    
 #-----------------------------------------------------------------------------------------------------------------------
 
 while True:
@@ -97,6 +93,7 @@ while True:
     print('1 -KALKILATRIS BAZIK AVÈK 4 FONKSYON (+ - * /)')
     print('2- KALKILE LAJ KENPÒT MOUN')
     print('3- KONVÈTI TANPERATI F°/C°')
+    print('0- SI OU VLE FEMEN PWOGRAM NAN')
     print('--------------------------------------------------\n')
 
     exo = input('Ki ekzèsis ou vle fè: ')
@@ -108,10 +105,11 @@ while True:
             elif(indexExo == 1):
                 KALKILELAJ()
             elif(indexExo == 2):
-                print('Exo III')
+                TANPERATI()
         else:
             if(indexExo <= 0):
-                print('Pa gen ekzèsis ki gen nimewo 0')
+                print('\nPwogram nan femen!\n')
+                break
             else:
                 print('Nimewo ekzèsis sa a poko disponib!')
     else:
