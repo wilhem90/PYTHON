@@ -4,8 +4,9 @@ print('\n--------------------------------------------------')
 print('1 -KALKILATRIS BAZIK AVÈK 4 FONKSYON (+ - * /)')
 print('2- KALKILE LAJ KENPÒT MOUN')
 print('3- KONVÈTI TANPERATI F°/C°')
+print('3- KALKILE MEDYA')
 print('--------------------------------------------------\n')
-listExo = ['1 -KALKILATRIS BAZIK AVÈK 4 FONKSYON (+ - * /)', '2- KALKILE LAJ KENPÒT MOUN', '3- KONVÈTI TANPERATI F°/C°']
+listExo = ['1 -KALKILATRIS BAZIK AVÈK 4 FONKSYON (+ - * /)', '2- KALKILE LAJ KENPÒT MOUN', '3- KONVÈTI TANPERATI F°/C°', '4- KALKILE MEDYA']
 
 #-----------------------------------------------------------------------------------------------------------------------
 def KALKILATRIS():
@@ -82,6 +83,37 @@ def TANPERATI():
             break
         else:
             print('Ou dwe enfòme yon valè nimerik')
+
+def MEDYA():
+    alumnns = ['Wilhem Wundt Maxime', 'Gael Charles', 'Bernanrd Pelegrine', 'Hendy Bernard', 'Rita Pierre', 'Rosmanie Joseph', 'Lislor Hyppolite', 'Rubens Maxime', 'Herode Etienne', 'Milgot Pelegrine', 'Sunshine Pierre', 'Leveksy Paul']
+    print('----------\nEkzèsis n° 004\n----------')
+    qtnota = int(input('Digite qt notas: '))
+
+    for i in alumnns:
+        print('\n----------------------------',i,'----------------------------')
+        soma = 0
+        media = 0
+        indexNota = 1
+        recebeqt = qtnota
+        while recebeqt:
+            notaEntrada = input(f'Digite nota {indexNota}: ')
+            if(notaEntrada.isnumeric()):
+                if(int(notaEntrada) <= 10):
+                    indexNota += 1
+                    soma += int(notaEntrada)
+                    recebeqt -= 1
+                    media = soma/(indexNota-1)
+                else:
+                    print('----- Essa nota não esta correta! -----')
+            else:
+                print('----- Error: Ouffffff Deve informar um valor numerico! -----')
+        print('Alumno(a): ',i)
+        print('Notas toal: ', soma)
+        print('A media dele(a) é: ',media,' pts.')
+        if(media >= 7):
+            print('Alumno(a) foi aprovado(a)')
+        else:
+            print('Alumno(a) foi reprovado(a)!')
     
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -93,6 +125,7 @@ while True:
     print('1 -KALKILATRIS BAZIK AVÈK 4 FONKSYON (+ - * /)')
     print('2- KALKILE LAJ KENPÒT MOUN')
     print('3- KONVÈTI TANPERATI F°/C°')
+    print('4- KALKILE MEDYA')
     print('0- SI OU VLE FEMEN PWOGRAM NAN')
     print('--------------------------------------------------\n')
 
@@ -106,6 +139,8 @@ while True:
                 KALKILELAJ()
             elif(indexExo == 2):
                 TANPERATI()
+            elif(indexExo == 3):
+                MEDYA()
         else:
             if(indexExo <= 0):
                 print('\nPwogram nan femen!\n')
